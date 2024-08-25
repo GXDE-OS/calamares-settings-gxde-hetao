@@ -1,0 +1,34 @@
+---
+componentName:   GXDE-OS
+welcomeStyleCalamares: true
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowSize: 800px,520px
+windowPlacement: center
+
+strings:
+    productName:         GXDE OS GNU/Linux
+    shortProductName:    GXDE
+    version:             15.12 (bixie)
+    shortVersion:        15
+    versionedName:       GXDE OS 15.12 (bixie)
+    shortVersionedName:  GXDE OS 15.12
+    bootloaderEntryName: GXDE OS
+    productUrl:          https://gxde.gfdgdxi.top
+    knownIssuesUrl:      https://gitee.com/organizations/GXDE-OS/issues
+    donateUrl:           https://gitee.com/GXDE-OS#%E8%AF%B7%E4%BD%9C%E8%80%85%E5%96%9D%E6%9D%AF%E8%8C%B6
+
+images:
+    productLogo:         "gxde-logo.svg"
+    productIcon:         "gxde-logo.svg"
+    # productWallpaper:  "wallpaper.png"
+
+slideshow:               "show.qml"
+
+style:
+   sidebarBackground:    "#2c3133"
+   sidebarText:          "#FFFFFF"
+   sidebarTextSelect:    "#4d7079"
+   sidebarTextSelect:    "#292F34"
+
+slideshowAPI: 2

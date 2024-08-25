@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Install GXDE OS
+GenericName=Calamares Installer
+Exec=install-gxde
+Comment=Calamares — Installer for GXDE OS Live
+Keywords=calamares;system;install;debian;installer;gxde
+Icon=gxde-installer
+Terminal=false
+Categories=Qt;System;
+StartupWMClass=calamares
+StartupNotify=True
