@@ -2,6 +2,7 @@
 Type=Application
 Version=1.0
 Name=Install GXDE OS
+Name[zh]=安装 GXDE OS
 GenericName=Calamares Installer
 Exec=install-gxde
 Comment=Calamares — Installer for GXDE OS Live

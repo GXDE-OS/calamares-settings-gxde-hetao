@@ -40,8 +40,8 @@ Presentation
         Text {
             anchors.horizontalCenter: background1.horizontalCenter
             anchors.top: background1.bottom
-            text: qsTr("Welcome to GXDE OS GNU/Linux.<br/>"+
-                  "The rest of the installation is automated and should complete in a few minutes.")
+            text: qsTr("欢迎使用 GXDE OS。<br/>"+
+                  "只需一杯咖啡的时间，您就可以体验GXDE给您带来的畅快感。")
             wrapMode: Text.WordWrap
             width: 600
             horizontalAlignment: Text.Center
