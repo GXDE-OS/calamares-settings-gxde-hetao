@@ -13,15 +13,32 @@ mkdir -p $DESKTOP
 # Among the GXDE desktop environments, LXDE is the only one
 # that behaves completely different.
 if [ -f /usr/bin/lxsession ]; then
-    echo "[Desktop Entry]" > $DESKTOP/install-gxde.desktop
-    echo "Type=Link" >> $DESKTOP/install-gxde.desktop
-    echo "Name=Install GXDE" >> $DESKTOP/install-gxde.desktop
-    echo "Icon=install-gxde" >> $DESKTOP/install-gxde.desktop
-    echo "URL=/usr/share/applications/install-gxde.desktop" \
-          >> $DESKTOP/install-gxde.desktop
+    echo "[Desktop Entry]" > $DESKTOP/calamares-install-gxde.desktop
+    echo "Type=Link" >> $DESKTOP/calamares-install-gxde.desktop
+    echo "Name=Install GXDE" >> $DESKTOP/calamares-install-gxde.desktop
+    echo "Icon=install-gxde" >> $DESKTOP/calamares-install-gxde.desktop
+    echo "URL=/usr/share/applications/calamares-install-gxde.desktop" \
+          >> $DESKTOP/calamares-install-gxde.desktop
 else
-    cp /usr/share/applications/install-gxde.desktop $DESKTOP
+    cp /usr/share/applications/calamares-install-gxde.desktop $DESKTOP
     # Xfce needs this executable otherwise it complains, everything
     # else doesn't seem to care either way.
-    chmod +x $DESKTOP/install-gxde.desktop
+    chmod +x $DESKTOP/calamares-install-gxde.desktop
 fi
+
+# Set desktop launcher as trusted under Xfce (See: #1037299)
+if [ "$XDG_CURRENT_DESKTOP" = "XFCE" ]; then
+    gio set --type=string ~/Desktop/calamares-install-gxde.desktop \
+        metadata::trusted true
+    gio set --type=string ~/Desktop/calamares-install-gxde.desktop \
+        metadata::xfce-exe-checksum \
+        "$(sha256sum ~/Desktop/calamares-install-gxde.desktop | cut -f1 -d' ')"
+    touch ~/Desktop/calamares-install-gxde.desktop
+fi
+
+# Preload calamares binaries and libraries using idle disk cycles
+# so that it launches faster
+ionice -C Idle cat /usr/bin/calamares > /dev/null
+for file in $(ldd /usr/bin/calamares | awk '{print $3}'): do
+    ionice -C Idle cat $file > /dev/null
+done

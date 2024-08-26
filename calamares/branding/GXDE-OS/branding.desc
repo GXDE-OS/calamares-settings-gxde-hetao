@@ -18,6 +18,9 @@ strings:
     knownIssuesUrl:      https://gitee.com/organizations/GXDE-OS/issues
     donateUrl:           https://gitee.com/GXDE-OS#%E8%AF%B7%E4%BD%9C%E8%80%85%E5%96%9D%E6%9D%AF%E8%8C%B6
 
+sidebar: widget
+navigation: widget
+
 images:
     productLogo:         "gxde-logo.svg"
     productIcon:         "gxde-logo.svg"
@@ -26,9 +29,9 @@ images:
 slideshow:               "show.qml"
 
 style:
-   sidebarBackground:    "#2c3133"
-   sidebarText:          "#FFFFFF"
-   sidebarTextSelect:    "#4d7079"
-   sidebarTextSelect:    "#292F34"
+   SidebarBackground:    "#002424"
+   SidebarText:          "#FFFFFF"
+   SidebarTextCurrent:   "#fbfbfb"
+   SidebarBackgroundCurrent: "#005050"
 
 slideshowAPI: 2
