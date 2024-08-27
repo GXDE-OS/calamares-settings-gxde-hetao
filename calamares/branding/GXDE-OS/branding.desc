@@ -9,10 +9,10 @@ windowPlacement: center
 strings:
     productName:         GXDE OS GNU/Linux
     shortProductName:    GXDE
-    version:             15.12 (bixie)
+    version:             15 (bixie)
     shortVersion:        15
-    versionedName:       GXDE OS 15.12 (bixie)
-    shortVersionedName:  GXDE OS 15.12
+    versionedName:       GXDE OS 15 (bixie)
+    shortVersionedName:  GXDE OS 15
     bootloaderEntryName: GXDE OS
     productUrl:          https://gxde.gfdgdxi.top
     knownIssuesUrl:      https://gitee.com/organizations/GXDE-OS/issues
