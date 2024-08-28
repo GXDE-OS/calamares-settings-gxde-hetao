@@ -2,6 +2,7 @@ calamares etc
 calamares-modules/* usr/lib/calamares/modules
 scripts/* usr/sbin
 *.desktop usr/share/applications
+*.desktop etc/xdg/autostart
 install-gxde usr/bin
 artwork/gxde-installer.svg usr/share/pixmaps
 conf/96_calamares-settings-gxde.gschema.override usr/share/glib-2.0/schemas
