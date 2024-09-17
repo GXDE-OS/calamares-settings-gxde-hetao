@@ -16,9 +16,11 @@ echo "Running bootloader-config..."
 
 if [ -d /sys/firmware/efi/efivars ]; then
     echo " * Installing grub-efi (uefi)..."
+    DEBIAN_FRONTEND=noninteractive chroot $CHROOT apt-get -y purge grub-pc | true
     DEBIAN_FRONTEND=noninteractive chroot $CHROOT apt-get -y install grub-efi-`dpkg --print-architecture`
 else
     echo " * install grub... (bios)"
+    DEBIAN_FRONTEND=noninteractive chroot $CHROOT apt-get -y purge grub-efi-`dpkg --print-architecture` | true
     DEBIAN_FRONTEND=noninteractive chroot $CHROOT apt-get -y install grub-pc
 fi
 
