@@ -16,7 +16,7 @@ rm -f $CHROOT/etc/apt/sources.list.d/base.list
 
 mkdir -p $CHROOT/$MEDIUM_PATH
 mount --bind $MEDIUM_PATH $CHROOT/$MEDIUM_PATH
-echo "deb [trusted=yes] file:$MEDIUM_PATH $RELEASE main" > $CHROOT/etc/apt/sources.list.d/debian-live-media.list
+echo "deb [trusted=yes] file:$MEDIUM_PATH/deb ./" > $CHROOT/etc/apt/sources.list.d/debian-live-media.list
 chroot $CHROOT apt-get update
 # Attempt safest way to remove cruft
 rmdir $CHROOT/run/live/medium
