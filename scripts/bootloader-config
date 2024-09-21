@@ -12,11 +12,25 @@ if [ "$(mount | grep $CHROOT" " | cut -c -16)" = "/dev/mapper/luks" ]; then
     chroot $CHROOT apt-get -y install cryptsetup-initramfs cryptsetup keyutils
 fi
 
+# 双内核的处理
+systemArch=$(dpkg --print-architecture)
+kerNum=$(ls -1 /boot/vmlinuz-* | wc -l)
+unstallVmlinuzPath=$(ls /boot/vmlinuz-* | grep -v $(uname -r))
+unstallInitrdPath=$(ls /lib/modules | grep -v $(uname -r))
+if [[ $kerNum == 2 ]]; then
+    # 获取包名
+    unstallVmlinuzPkgName=$(echo $(grep -l $unstallVmlinuzPath /var/lib/dpkg/info/*.list) | sed 's%/var/lib/dpkg/info/%%g' | sed 's%.list%%g')
+    unstallInitrdPkgName=$(echo $(grep -l $unstallInitrdPath /var/lib/dpkg/info/*.list) | sed 's%/var/lib/dpkg/info/%%g' | sed 's%.list%%g')
+    DEBIAN_FRONTEND=noninteractive chroot $CHROOT apt-get -y autopurge $unstallInitrdPkgName -y
+    DEBIAN_FRONTEND=noninteractive chroot $CHROOT apt-get -y autopurge $unstallVmlinuzPkgName -y
+fi
+
 echo "Running bootloader-config..."
 
 if [ -d /sys/firmware/efi/efivars ]; then
     echo " * Installing grub-efi (uefi)..."
-    DEBIAN_FRONTEND=noninteractive chroot $CHROOT apt-get -y install grub-efi-`dpkg --print-architecture`
+    DEBIAN_FRONTEND=noninteractive chroot $CHROOT apt-get -y install grub-efi-$systemArch
+    DEBIAN_FRONTEND=noninteractive chroot $CHROOT apt-get -y install grub-efi
 else
     echo " * install grub... (bios)"
     DEBIAN_FRONTEND=noninteractive chroot $CHROOT apt-get -y install grub-pc
