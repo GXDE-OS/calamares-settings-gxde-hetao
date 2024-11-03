@@ -1,12 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Writes the final sources.list file
 #
 
 CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
 RELEASE="bookworm"
-
-cat << EOF > $CHROOT/etc/apt/sources.list
+if [[ $(dpkg --print-architecture) == "loong64" ]]; then
+    # loongarch 用自己特有的源
+    cat << EOF > $CHROOT/etc/apt/sources.list
+deb [trusted=true] https://packages.gxde.org/debian-loong64/ unstable main contrib non-free non-free-firmware
+deb [trusted=true] https://packages.gxde.org/debian-loong64/ unreleased main contrib non-free non-free-firmware
+EOF
+else
+    cat << EOF > $CHROOT/etc/apt/sources.list
 # See https://wiki.debian.org/SourcesList for more information.
 deb https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
 deb-src https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
@@ -21,5 +27,5 @@ deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security/ $RELEASE-security 
 deb https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
 deb-src https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
 EOF
-
+fi
 exit 0
