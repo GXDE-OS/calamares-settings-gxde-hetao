@@ -16,6 +16,7 @@ Depends: calamares,
          pkexec,
          qml-module-qtquick-window2,
          qml-module-qtquick2,
+         gxde-lang-selector,
          ${misc:Depends}
 Provides: calamares-settings
 Description: GXDE theme and settings for the Calamares Installer
