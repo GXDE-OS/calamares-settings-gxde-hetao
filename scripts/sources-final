@@ -2,16 +2,8 @@
 #
 # Writes the final sources.list file
 #
-
-CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
-RELEASE="bookworm"
-if [[ $(dpkg --print-architecture) == "loong64" ]]; then
-    # loongarch 用自己特有的源
-    cat << EOF > $CHROOT/etc/apt/sources.list
-deb [trusted=true] https://packages.gxde.org/debian-loong64/ unstable main contrib non-free non-free-firmware
-deb [trusted=true] https://packages.gxde.org/debian-loong64/ unreleased main contrib non-free non-free-firmware
-EOF
-else
+function WriteDebianSource() {
+    RELEASE=$1
     cat << EOF > $CHROOT/etc/apt/sources.list
 # See https://wiki.debian.org/SourcesList for more information.
 deb https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
@@ -27,5 +19,51 @@ deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security/ $RELEASE-security 
 deb https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
 deb-src https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
 EOF
-fi
+}
+function BixieSource() {
+    if [[ $(dpkg --print-architecture) == "loong64" ]]; then
+        # loongarch 用自己特有的源
+        cat << EOF > $CHROOT/etc/apt/sources.list
+deb https://mirrors.sjtug.sjtu.edu.cn/debian-ports sid main contrib non-free non-free-firmware
+EOF
+    else
+        WriteDebianSource bookworm
+    fi
+}
+
+function LizhiSource() {
+    WriteDebianSource trixie
+}
+
+function MeimeiSource() {
+    cat << EOF > $CHROOT/etc/apt/sources.list
+deb https://pkg.loongnix.cn/loongnix/25 loongnix main contrib non-free non-free-firmware
+# deb-src https://pkg.loongnix.cn/loongnix/25 loongnix main contrib non-free non-free-firmware
+EOF
+}
+
+CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+RELEASE="bookworm"
+codeName=`cat /etc/gxde-codename`
+case $2 in
+    "lizhi")
+        LizhiSource
+    ;;
+    "zhuangzhuang")
+        LizhiSource
+    ;;
+    "meimei")
+        MeimeiSource
+    ;;
+    "tianlu")
+        BixieSource
+    ;;
+    "bixie")
+        BixieSource
+    ;;
+    *)
+        BixieSource
+    ;;
+esac
+
 exit 0

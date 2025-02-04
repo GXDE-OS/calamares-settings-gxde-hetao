@@ -1,8 +1,8 @@
-calamares-settings-gxde (12.1) UNRELEASED; urgency=medium
+calamares-settings-gxde (12.2) UNRELEASED; urgency=medium
 
-  * Non-maintainer upload.
+  * 优化版本代号识别
 
- -- gfdgd_xi <3025613752@qq.com>  Wed, 20 Nov 2024 22:15:19 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Tue, 04 Feb 2025 22:52:35 +0800
 
 calamares-settings-gxde (12.0.9-1) unstable; urgency=medium
 
