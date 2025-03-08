@@ -6,18 +6,18 @@ function WriteDebianSource() {
     RELEASE=$1
     cat << EOF > $CHROOT/etc/apt/sources.list
 # See https://wiki.debian.org/SourcesList for more information.
-deb https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
-deb-src https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
+deb https://mirrors.cernet.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
+deb-src https://mirrors.cernet.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
 
-deb http://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE-updates main contrib non-free non-free-firmware
-deb-src http://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE-updates main contrib non-free non-free-firmware
+deb http://mirrors.cernet.edu.cn/debian $RELEASE-updates main contrib non-free non-free-firmware
+deb-src http://mirrors.cernet.edu.cn/debian $RELEASE-updates main contrib non-free non-free-firmware
 
-deb https://mirrors.tuna.tsinghua.edu.cn/debian-security/ $RELEASE-security main contrib non-free non-free-firmware
-deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security/ $RELEASE-security main contrib non-free non-free-firmware
+deb https://mirrors.cernet.edu.cn/debian-security/ $RELEASE-security main contrib non-free non-free-firmware
+deb-src https://mirrors.cernet.edu.cn/debian-security/ $RELEASE-security main contrib non-free non-free-firmware
 
 # Backports allow you to install newer versions of software made available for this release
-deb https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
-deb-src https://mirrors.tuna.tsinghua.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
+deb https://mirrors.cernet.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
+deb-src https://mirrors.cernet.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
 EOF
 }
 function BixieSource() {

@@ -1,8 +1,8 @@
-calamares-settings-gxde (12.2.1) UNRELEASED; urgency=medium
+calamares-settings-gxde (12.2.2) UNRELEASED; urgency=medium
 
-  * 自动移除 boot-repair
+  * 更换镜像源为MirrorZ
 
- -- gfdgd_xi <3025613752@qq.com>  Wed, 05 Feb 2025 15:24:27 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Sat, 08 Mar 2025 15:45:26 +0800
 
 calamares-settings-gxde (12.0.9-1) unstable; urgency=medium
 
