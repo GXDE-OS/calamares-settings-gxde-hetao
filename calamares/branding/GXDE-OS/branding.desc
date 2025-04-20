@@ -9,10 +9,10 @@ windowPlacement: center
 strings:
     productName:         GXDE OS GNU/Linux
     shortProductName:    GXDE
-    version:             15
-    shortVersion:        15
-    versionedName:       GXDE OS 15
-    shortVersionedName:  GXDE OS 15
+    version:             25 (lizhi)
+    shortVersion:        25
+    versionedName:       GXDE OS 25 (lizhi)
+    shortVersionedName:  GXDE OS 25
     bootloaderEntryName: GXDE OS
     productUrl:          https://www.gxde.top
     knownIssuesUrl:      https://gitee.com/organizations/GXDE-OS/issues

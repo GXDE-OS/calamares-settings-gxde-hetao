@@ -1,8 +1,9 @@
-calamares-settings-gxde (12.2.4) UNRELEASED; urgency=medium
+calamares-settings-gxde (13.0.0) UNRELEASED; urgency=medium
 
   * 修复轮播图显示不全的问题
+  * 支持 lizhi
 
- -- gfdgd_xi <3025613752@qq.com>  Fri, 28 Mar 2025 22:50:01 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Sun, 20 Apr 2025 13:27:25 +0800
 
 calamares-settings-gxde (12.0.9-1) unstable; urgency=medium
 

@@ -2,9 +2,10 @@
 #
 # Writes the final sources.list file
 #
-function WriteDebianSource() {
-    RELEASE=$1
-    cat << EOF > $CHROOT/etc/apt/sources.list
+CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+RELEASE="trixie"
+
+cat << EOF > $CHROOT/etc/apt/sources.list
 # See https://wiki.debian.org/SourcesList for more information.
 deb https://mirrors.cernet.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
 deb-src https://mirrors.cernet.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
@@ -19,51 +20,5 @@ deb-src https://mirrors.cernet.edu.cn/debian-security/ $RELEASE-security main co
 deb https://mirrors.cernet.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
 deb-src https://mirrors.cernet.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
 EOF
-}
-function BixieSource() {
-    if [[ $(dpkg --print-architecture) == "loong64" ]]; then
-        # loongarch 用自己特有的源
-        cat << EOF > $CHROOT/etc/apt/sources.list
-deb https://mirrors.sjtug.sjtu.edu.cn/debian-ports sid main contrib non-free non-free-firmware
-EOF
-    else
-        WriteDebianSource bookworm
-    fi
-}
-
-function LizhiSource() {
-    WriteDebianSource trixie
-}
-
-function MeimeiSource() {
-    cat << EOF > $CHROOT/etc/apt/sources.list
-deb https://pkg.loongnix.cn/loongnix/25 loongnix main contrib non-free non-free-firmware
-# deb-src https://pkg.loongnix.cn/loongnix/25 loongnix main contrib non-free non-free-firmware
-EOF
-}
-
-CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
-RELEASE="bookworm"
-codeName=`cat /etc/gxde-codename`
-case $2 in
-    "lizhi")
-        LizhiSource
-    ;;
-    "zhuangzhuang")
-        LizhiSource
-    ;;
-    "meimei")
-        MeimeiSource
-    ;;
-    "tianlu")
-        BixieSource
-    ;;
-    "bixie")
-        BixieSource
-    ;;
-    *)
-        BixieSource
-    ;;
-esac
 
 exit 0
