@@ -1,9 +1,10 @@
-calamares-settings-gxde (13.0.0) UNRELEASED; urgency=medium
+calamares-settings-gxde (13.0.1) UNRELEASED; urgency=medium
 
   * 修复轮播图显示不全的问题
   * 支持 lizhi
+  * 修复因没有 update-grub 导致安装失败的问题
 
- -- gfdgd_xi <3025613752@qq.com>  Sun, 20 Apr 2025 13:27:25 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Wed, 23 Apr 2025 18:27:29 +0800
 
 calamares-settings-gxde (12.0.9-1) unstable; urgency=medium
 

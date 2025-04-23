@@ -38,4 +38,6 @@ fi
 
 # Re-enable os-prober:
 sed -i "s/#GRUB_DISABLE_OS_PROBER=false/# OS_PROBER re-enabled by GXDE Calamares installation:\nGRUB_DISABLE_OS_PROBER=false/g" $CHROOT/etc/default/grub
-chroot $CHROOT /usr/sbin/update-grub
+if [[ -f $CHROOT/usr/sbin/update-grub ]]; then
+    chroot $CHROOT /usr/sbin/update-grub
+fi
