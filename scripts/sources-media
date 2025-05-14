@@ -1,9 +1,25 @@
 #!/bin/sh
 
 CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+MEDIUM_PATH="/run/live/medium"
+DEEPIN_LIVE_SOURCE=$CHROOT/etc/apt/sources.list.d/deepin-live-media.list
+
+if [ "$1" = "-u" ]; then
+    umount $MEDIUM_PATH
+    rm $DEEPIN_LIVE_SOURCE
+    chroot $CHROOT apt-get update
+    exit 0
+fi
+
+rm -f $CHROOT/etc/apt/sources.list
+
+mkdir -p $CHROOT/$MEDIUM_PATH
+mount --bind $MEDIUM_PATH $CHROOT/$MEDIUM_PATH
+echo "deb [trusted=yes] file:$MEDIUM_PATH/deb ./" > $DEEPIN_LIVE_SOURCE
+chroot $CHROOT apt-get update
 
 # Attempt safest way to remove cruft
-rmdir $CHROOT/run/live/medium
+rmdir $CHROOT/$MEDIUM_PATH
 rmdir $CHROOT/run/live
 
 exit 0
