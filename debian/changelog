@@ -1,3 +1,9 @@
+calamares-settings-deepin (1.0.1) unstable; urgency=medium
+
+  * fix error grub install
+
+ -- bluesky <chenchongbiao@deepin.org>  Wed, 14 May 2025 14:02:35 +0800
+
 calamares-settings-deepin (1.0.0) unstable; urgency=medium
 
   * Initial release
