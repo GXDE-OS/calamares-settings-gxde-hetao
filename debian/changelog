@@ -1,6 +1,7 @@
 calamares-settings-deepin (1.0.1) unstable; urgency=medium
 
-  * fix error grub install
+  * Fix error grub install
+  * Add support for loongarch64
 
  -- bluesky <chenchongbiao@deepin.org>  Wed, 14 May 2025 14:02:35 +0800
 
