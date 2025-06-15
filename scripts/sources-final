@@ -3,22 +3,11 @@
 # Writes the final sources.list file
 #
 CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
-RELEASE="trixie"
+RELEASE="crimson"
 
 cat << EOF > $CHROOT/etc/apt/sources.list
-# See https://wiki.debian.org/SourcesList for more information.
-deb https://mirrors.cernet.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
-deb-src https://mirrors.cernet.edu.cn/debian $RELEASE main contrib non-free non-free-firmware
-
-deb http://mirrors.cernet.edu.cn/debian $RELEASE-updates main contrib non-free non-free-firmware
-deb-src http://mirrors.cernet.edu.cn/debian $RELEASE-updates main contrib non-free non-free-firmware
-
-deb https://mirrors.cernet.edu.cn/debian-security/ $RELEASE-security main contrib non-free non-free-firmware
-deb-src https://mirrors.cernet.edu.cn/debian-security/ $RELEASE-security main contrib non-free non-free-firmware
-
-# Backports allow you to install newer versions of software made available for this release
-deb https://mirrors.cernet.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
-deb-src https://mirrors.cernet.edu.cn/debian $RELEASE-backports main contrib non-free non-free-firmware
+deb https://mirrors.cernet.edu.cn/deepin/beige $RELEASE main commercial community
+# deb-src https://mirrors.cernet.edu.cn/deepin/beige $RELEASE main commercial community
 EOF
 
 exit 0
