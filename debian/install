@@ -6,3 +6,4 @@ install-gxde usr/bin
 artwork/install-gxde.svg usr/share/pixmaps
 conf/calamares-desktop-icon.desktop etc/xdg/autostart
 add-calamares-desktop-icon usr/bin
+gxde-live.rules usr/share/polkit-1/rules.d/
