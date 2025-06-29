@@ -33,20 +33,50 @@ Presentation
     Slide {
         Image {
             id: background1
-            source: "slide1.png"
-            width: 467; height: 280
+            source: "slide_1.png"
+            width: 1000; height: 650
             fillMode: Image.PreserveAspectFit
             anchors.centerIn: parent
         }
-        Text {
-            anchors.horizontalCenter: background1.horizontalCenter
-            anchors.top: background1.bottom
-            text: qsTr("Welcome to Deepin GNU/Linux.<br/>"+
-                  "The rest of the installation is automated and should complete in a few minutes.")
-            wrapMode: Text.WordWrap
-            width: 600
-            horizontalAlignment: Text.Center
+    }
+
+    Slide {
+        Image {
+            id: background2
+            source: "slide_2.png"
+            width: 1000; height: 650
+            fillMode: Image.PreserveAspectFit
+            anchors.centerIn: parent
         }
     }
 
+    Slide {
+        Image {
+            id: background3
+            source: "slide_3.png"
+            width: 1000; height: 650
+            fillMode: Image.PreserveAspectFit
+            anchors.centerIn: parent
+        }
+    }
+
+    Slide {
+        Image {
+            id: background4
+            source: "slide_4.png"
+            width: 1000; height: 650
+            fillMode: Image.PreserveAspectFit
+            anchors.centerIn: parent
+        }
+    }
+
+    Slide {
+        Image {
+            id: background5
+            source: "slide_5.png"
+            width: 1000; height: 650
+            fillMode: Image.PreserveAspectFit
+            anchors.centerIn: parent
+        }
+    }
 }

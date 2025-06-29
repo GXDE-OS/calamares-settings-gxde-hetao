@@ -1,11 +1,17 @@
-calamares-settings-deepin (1.0.1) unstable; urgency=medium
+calamares-settings-gxde (1.0.2) UNRELEASED; urgency=medium
+
+  * init
+
+ -- gfdgd_xi <3025613752@qq.com>  Sun, 29 Jun 2025 09:22:35 +0800
+
+calamares-settings-gxde (1.0.1) unstable; urgency=medium
 
   * Fix error grub install
   * Add support for loongarch64
 
  -- bluesky <chenchongbiao@deepin.org>  Wed, 14 May 2025 14:02:35 +0800
 
-calamares-settings-deepin (1.0.0) unstable; urgency=medium
+calamares-settings-gxde (1.0.0) unstable; urgency=medium
 
   * Initial release
 

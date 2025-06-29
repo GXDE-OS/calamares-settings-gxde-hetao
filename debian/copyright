@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: calamares-settings-deepin
-Source: https://github.com/deepin-community/calamares-settings-deepin
+Upstream-Name: calamares-settings-gxde
+Source: https://github.com/deepin-community/calamares-settings-gxde
 
 Files: *
 Copyright: 2025 bluesky <chenchongbiao@deepin.org>

@@ -1,13 +1,13 @@
-Source: calamares-settings-deepin
+Source: calamares-settings-gxde
 Section: utils
 Priority: optional
-Maintainer: bluesky <chenchongbiao@deepin.org>
+Maintainer: gfdgd xi <3025613752@qq.com>, bluesky <chenchongbiao@deepin.org>
 Build-Depends: debhelper-compat (= 13), libglib2.0-bin
 Standards-Version: 4.6.0
 Rules-Requires-Root: no
-Homepage: https://github.com/deepin-community/calamares-settings-deepin
+Homepage: https://gitee.com/GXDE-OS/calamares-settings-gxde-hetao
 
-Package: calamares-settings-deepin
+Package: calamares-settings-gxde
 Architecture: all
 Depends: calamares,
          cryptsetup,
@@ -16,12 +16,13 @@ Depends: calamares,
          pkexec,
          qml-module-qtquick-window2,
          qml-module-qtquick2,
+         gxde-lang-selector,
          ${misc:Depends}
 Provides: calamares-settings
-Description: deepin theme and settings for the Calamares Installer
+Description: GXDE theme and settings for the Calamares Installer
  Calamares is a generic installer framework for Linux distributions.
  By default, it contains a set of boilerplate wording and images. This
- package provides the latest deepin artwork as well as scripts that
+ package provides the latest GXDE artwork as well as scripts that
  supports EFI installations.
  .
- An open-source deepin-installer provided for developers to use.
+ An open-source GXDE-installer provided for developers to use.

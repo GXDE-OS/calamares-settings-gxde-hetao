@@ -9,4 +9,4 @@ DESKTOP=$(xdg-user-dir DESKTOP)
 # creation script.
 mkdir -p $DESKTOP
 
-cp /usr/share/applications/install-deepin.desktop $DESKTOP
+cp /usr/share/applications/install-gxde.desktop $DESKTOP
