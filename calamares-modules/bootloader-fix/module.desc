@@ -1,0 +1,6 @@
+---
+type:       "job"
+name:       "bootloader-fix"
+interface:  "process"
+command:    "/usr/sbin/bootloader-fix"
+timeout:    600

@@ -9,9 +9,9 @@ windowPlacement: center
 strings:
     productName:         GXDE OS GNU/Linux
     shortProductName:    GXDE
-    version:             25 (lizhi)
+    version:             25 (hetao)
     shortVersion:        25
-    versionedName:       GXDE OS 25 (lizhi)
+    versionedName:       GXDE OS 25 (hetao)
     shortVersionedName:  GXDE OS 25
     bootloaderEntryName: GXDE OS
     productUrl:          https://www.gxde.top

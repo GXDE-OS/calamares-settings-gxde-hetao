@@ -1,0 +1,18 @@
+#!/bin/bash
+
+CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+
+echo "Running bootloader-fix..."
+
+# loongarch64 的机器固件存在一些问题，只能识别 /boot/efi/EFI/boot 下的 EFI 文件，需要手动修复。
+if [[ $(uname -m) == loongarch64 ]]; then
+    LOONGARCH64_EFI="grubloongarch64.efi"
+    DEEPIN_EFI="$CHROOT/boot/efi/EFI/deepin/$LOONGARCH64_EFI"
+    if [ -f "$DEEPIN_EFI" ]; then
+        for efi in grubloongarch64.efi BOOTLOONGARCH.EFI BOOTLOONGARCH64.EFI; do
+            BOOT_EFI="$CHROOT/boot/efi/EFI/boot/$efi"
+            echo "copy $DEEPIN_EFI to $BOOT_EFI"
+            cp $DEEPIN_EFI $BOOT_EFI
+        done
+    fi
+fi
