@@ -8,3 +8,4 @@ artwork/gxde-installer.svg usr/share/pixmaps
 conf/96_calamares-settings-gxde.gschema.override usr/share/glib-2.0/schemas
 conf/calamares-desktop-icon.desktop etc/xdg/autostart
 add-calamares-desktop-icon usr/bin
+gxde-live.rules usr/share/polkit-1/rules.d/
