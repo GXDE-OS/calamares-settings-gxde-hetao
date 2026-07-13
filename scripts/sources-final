@@ -6,7 +6,7 @@
 CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
 
 cat << EOF > $CHROOT/etc/apt/sources.list
-deb https://community-packages.deepin.com/beige/ crimson main commercial community
+deb https://mirrors.tuna.tsinghua.edu.cn/deepin/beige/ crimson main commercial community
 EOF
 
 exit 0
