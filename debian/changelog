@@ -1,4 +1,4 @@
-calamares-settings-gxde (13.0.5) UNRELEASED; urgency=medium
+calamares-settings-gxde (13.0.6) UNRELEASED; urgency=medium
 
   * 修复轮播图显示不全的问题
   * 支持 lizhi
@@ -6,8 +6,9 @@ calamares-settings-gxde (13.0.5) UNRELEASED; urgency=medium
   * 修改轮播图文案
   * 支持 calamares 3.3
   * 修复安装后 apt 源为 debian 而非 deepin 的问题
+  * 使用更快的清华源
 
- -- gfdgd_xi <3025613752@qq.com>  Mon, 29 Sep 2025 22:03:30 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Mon, 13 Jul 2026 22:47:17 +0800
 
 calamares-settings-gxde (12.0.9-1) unstable; urgency=medium
 
